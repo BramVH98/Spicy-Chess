@@ -1,4 +1,4 @@
-mod attacks;
+/*mod attacks;
 mod board;
 mod movegen;
 use attacks::Tables;
@@ -30,4 +30,15 @@ fn main() {
             println!("  depth {}: {} (expected {}) {}", d, n, expected[(d - 1) as usize], ok);
         }
     }
+}*/
+
+mod attacks;
+mod board;
+mod eval;
+mod movegen;
+mod search;
+mod uci;
+
+fn main(){
+    uci::run();
 }

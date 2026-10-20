@@ -17,7 +17,7 @@ pub fn evaluate(b: &Board) -> i32{
     for color in 0..2{
         let mut s = 0;
         for piece in 0..6{
-            let mut bb = b.pieces[piece] & b.colors[color];
+            let mut bb = b.pieces[piece] & b.color[color];
             while bb != 0{
                 let sq = bb.trailing_zeros() as usize;
                 bb &= bb - 1;
@@ -25,7 +25,7 @@ pub fn evaluate(b: &Board) -> i32{
                 s += match piece{
                     PAWN => {
                         let adv = (if color == 0 { sq / 8 } else { 7 - sq / 8 }) as i32;
-                        adv * 5 + centre(sq) * 2;
+                        adv * 5 + centre(sq) * 2
                     }
                     KNIGHT => centre(sq) * 6,
                     BISHOP => centre(sq) * 3,
